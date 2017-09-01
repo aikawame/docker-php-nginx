@@ -1,6 +1,8 @@
 FROM php:7.1-fpm-alpine
 
-RUN docker-php-ext-install \
+RUN curl -sS https://getcomposer.org/installer | php \
+    && mv composer.phar /usr/local/bin/composer \
+    && docker-php-ext-install \
         mbstring \
         pdo_mysql \
     && apk add --update --no-cache \
