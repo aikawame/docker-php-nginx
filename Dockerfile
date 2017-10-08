@@ -6,6 +6,7 @@ RUN curl -sS https://getcomposer.org/installer | php \
         mbstring \
         pdo_mysql \
     && apk add --update --no-cache \
+        bash \
         nginx \
     && mkdir -p /run/nginx \
     && echo -e "#!/bin/sh\nphp-fpm -D\nnginx -g 'daemon off;'" \
